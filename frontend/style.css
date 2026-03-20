@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #ffffff;
+    --text-main: #000000;
+    --text-muted: #666666;
+    --border-color: #000000;
+    --accent: #000000;
+    --accent-hover: #333333;
+    --surface: #ffffff;
+    
+    --success: #000000;
+    --error: #000000;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-image: linear-gradient(90deg, #f0f0f0 1px, transparent 1px), linear-gradient(#f0f0f0 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+/* --- Brutalist / Minimalist Container --- */
+.container {
+    background: var(--surface);
+    border: 3px solid var(--border-color);
+    box-shadow: 12px 12px 0px var(--border-color);
+    width: 100%;
+    max-width: 500px;
+    padding: 40px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.container:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 16px 16px 0px var(--border-color);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 35px;
+    border-bottom: 3px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* --- Inputs --- */
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 16px;
+    background: #ffffff;
+    border: 3px solid var(--border-color);
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+    border-radius: 0;
+}
+
+.input-group input::placeholder {
+    color: #999999;
+}
+
+.input-group input:focus {
+    box-shadow: 6px 6px 0px var(--border-color);
+    transform: translate(-2px, -2px);
+}
+
+/* --- Upload Area --- */
+.upload-area {
+    border: 3px dashed var(--border-color);
+    padding: 40px 20px;
+    text-align: center;
+    background: #fafafa;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.upload-area:hover, .upload-area.dragover {
+    background: #000000;
+    color: #ffffff;
+    border-style: solid;
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.2);
+}
+
+.upload-icon {
+    color: inherit;
+    margin-bottom: 16px;
+    transition: transform 0.2s;
+}
+
+.upload-area:hover .upload-icon, .upload-area.dragover .upload-icon {
+    transform: scale(1.1);
+}
+
+.upload-area h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.upload-area p {
+    font-size: 14px;
+    margin-bottom: 16px;
+    color: inherit;
+    opacity: 0.8;
+}
+
+.file-btn {
+    display: inline-block;
+    background: var(--text-main);
+    color: var(--bg-color);
+    border: 2px solid var(--border-color);
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.upload-area:hover .file-btn {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* --- File List --- */
+.file-list {
+    margin-bottom: 24px;
+    max-height: 180px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Custom Scrollbar */
+.file-list::-webkit-scrollbar {
+    width: 8px;
+}
+.file-list::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-left: 2px solid #000000;
+}
+.file-list::-webkit-scrollbar-thumb {
+    background: #000000;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #ffffff;
+    border: 3px solid var(--border-color);
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.file-item::before {
+    content: '';
+    position: absolute;
+    top: 4px; left: 4px;
+    width: 100%; height: 100%;
+    background: #f0f0f0;
+    z-index: -1;
+    border: 1px solid #000000;
+}
+
+.file-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--border-color);
+}
+
+.file-name {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 15px;
+}
+
+.file-remove {
+    color: #000000;
+    cursor: pointer;
+    background: none;
+    border: 2px solid #000000;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.file-remove:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    width: 100%;
+    background: var(--text-main);
+    color: var(--bg-color);
+    border: 3px solid var(--border-color);
+    padding: 18px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: #ffffff;
+    color: #000000;
+    transform: translate(-4px, -4px);
+    box-shadow: 8px 8px 0px var(--border-color);
+}
+
+.submit-btn:active:not(:disabled) {
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 transparent;
+}
+
+.submit-btn:disabled {
+    background: #eeeeee;
+    color: #999999;
+    border-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* --- Message Box --- */
+.message-box {
+    margin-top: 24px;
+    padding: 16px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: 600;
+    border: 3px solid var(--border-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.message-box.hidden {
+    display: none;
+}
+
+.message-box.success {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 4px 4px 0px #000000;
+}
+
+.message-box.error {
+    background: #000000;
+    color: #ffffff;
+    box-shadow: 4px 4px 0px #cccccc;
+}
